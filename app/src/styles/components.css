@@ -1,0 +1,225 @@
+/* ------------------ Общие стили для компонентов ------------------ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f7fa;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* ------------------ Header ------------------ */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #1e1e2f;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  .header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .header nav a {
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .header nav a:hover {
+    color: #ff6b6b;
+  }
+  
+  /* ------------------ Footer ------------------ */
+  .footer {
+    padding: 20px 40px;
+    background: #1e1e2f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer a {
+    color: #ff6b6b;
+  }
+  
+  /* ------------------ CTA Button ------------------ */
+  .cta-button {
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 300px;
+    width: 100%;
+    font-weight: 600;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  
+  /* ------------------ Cowork Cards ------------------ */
+  .cowork-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .cowork-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  
+  .cowork-card.loaded {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .cowork-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .cowork-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* placeholder до загрузки картинки */
+  .img-placeholder {
+    width: 100%;
+    height: 180px;
+    background: #e0e0e0;
+    animation: pulse 1.5s infinite;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  @keyframes pulse {
+    0% { background-color: #e0e0e0; }
+    50% { background-color: #f0f0f0; }
+    100% { background-color: #e0e0e0; }
+  }
+  
+  .cowork-info {
+    padding: 15px;
+  }
+  
+  .cowork-info h3 {
+    margin: 0 0 5px;
+    font-size: 1.2rem;
+  }
+  
+  .cowork-info .city {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .cowork-info .description {
+    font-size: 0.9rem;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .cowork-info .price, .cowork-info .rating {
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  /* ------------------ Filter Bar ------------------ */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0 40px 0;
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .filter-bar:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  }
+  
+  .filter-bar label {
+    font-weight: 600;
+    color: #1e1e2f;
+  }
+  
+  .filter-bar select {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .filter-bar select:hover {
+    border-color: #ff6b6b;
+    background: #fff;
+  }
+  
+  .filter-bar select:focus {
+    outline: none;
+    border-color: #ff4757;
+    box-shadow: 0 0 5px rgba(255, 71, 87, 0.4);
+  }
+  
+  /* ------------------ Адаптивность для мобильных ------------------ */
+  @media (max-width: 768px) {
+    .filter-bar {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+  
+  /* ------------------ Адаптивность ------------------ */
+  @media (max-width: 768px) {
+    .cowork-info .description {
+      display: none; /* убираем длинный текст на мобилках */
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .header nav {
+      margin-top: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cta-button {
+      padding: 10px 15px;
+      font-size: 0.9rem;
+    }
+  }
